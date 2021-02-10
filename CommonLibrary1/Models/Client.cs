@@ -8,5 +8,7 @@ namespace CommonLibrary.Models
     public class Client : Person
     {
         public int Id { get; set; }
+        public int ClientId { get; set; }
+        public int AbonementId { get; set; }
     }
 }
