@@ -61,7 +61,7 @@ namespace WebClientServer
                 c.DisplayRequestDuration();
                 c.DocExpansion(Swashbuckle.AspNetCore.SwaggerUI.DocExpansion.None);
                 c.EnableFilter();
-                //c.SwaggerEndpoint("");
+                c.SwaggerEndpoint("v1/swagger.json", "Employee API");
             });
         }
     }

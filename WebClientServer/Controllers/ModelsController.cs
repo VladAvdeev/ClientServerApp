@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CommonLibrary1.Models;
+using GymClientServer.Sources;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,15 +11,20 @@ using System.Threading.Tasks;
 
 namespace GymClientServer.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/employee")]
     [ApiController]
     public class ModelsController : ControllerBase
     {
+        private readonly EmployeeRepository employeeRepository;
+        public ModelsController(IConfiguration configuration)
+        {
+            employeeRepository = new EmployeeRepository(configuration);
+        }
         // GET: api/<ValuesController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<Employee> GetAll()
         {
-            return new string[] { "value1", "value2" };
+            return employeeRepository.FindAll();
         }
 
         // GET api/<ValuesController>/5
