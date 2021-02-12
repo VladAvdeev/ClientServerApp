@@ -131,5 +131,8 @@
   <ItemGroup>
     <Folder Include="CoreWPF\" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\gymlogo.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

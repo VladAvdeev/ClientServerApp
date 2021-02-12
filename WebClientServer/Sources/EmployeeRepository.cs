@@ -65,8 +65,7 @@ namespace GymClientServer.Sources
             using (IDbConnection dbConnection = ConnectionDb)
             {
                 dbConnection.Open();
-                dbConnection.Query($"UPDATE {tableName} SET (FirstName, LastName, BirthDay, Phone, Email, EmpId)" +
-                    $"=(@FirstName, @LastName, @BirthDay, @Phone, @Email, @EmpId) WHERE Id = {employee.Id}", employee);
+                dbConnection.Query($"UPDATE {tableName} SET FirstName = @FirstName, LastName = @LastName, BirthDay = @BirthDay, Phone = @Phone, EmpId = @EmpId WHERE Id = {employee.Id}", employee);
                 dbConnection.Close();
             }
         }
