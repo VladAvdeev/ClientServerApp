@@ -1,6 +1,4 @@
-﻿using GymClient.ViewModels;
-using GymClient.Views;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,17 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace GymClient
+namespace GymClient.Views
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для ClubView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ClubView : UserControl
     {
-        public MainWindow()
+        public ClubView()
         {
             InitializeComponent();
-            DataContext = new MainWindowViewModel();
         }
     }
 }

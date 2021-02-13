@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GymClient", "GymClient\GymC
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommonLibrary", "CommonLibrary1\CommonLibrary.csproj", "{86E54203-6802-442E-A8E4-1B9EAC73EB9E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfLibrary1", "WpfLibrary1\WpfLibrary1.csproj", "{B14C03C9-035F-46B4-8634-94D12968B210}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,10 +27,6 @@ Global
 		{86E54203-6802-442E-A8E4-1B9EAC73EB9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{86E54203-6802-442E-A8E4-1B9EAC73EB9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{86E54203-6802-442E-A8E4-1B9EAC73EB9E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B14C03C9-035F-46B4-8634-94D12968B210}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B14C03C9-035F-46B4-8634-94D12968B210}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B14C03C9-035F-46B4-8634-94D12968B210}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B14C03C9-035F-46B4-8634-94D12968B210}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

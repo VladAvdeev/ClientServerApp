@@ -1,0 +1,20 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:GymClient">
+ 
+    <Style TargetType="MenuItem">
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="FontFamily" Value="Times New Roman"/>
+    </Style>
+    <Style TargetType="Menu">
+        <Setter Property="Background">
+            <Setter.Value>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="#9CD6FC" Offset="0" />
+                    <GradientStop Color="#DEDEDE" Offset="1" />
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

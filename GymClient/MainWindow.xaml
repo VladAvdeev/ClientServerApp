@@ -4,99 +4,61 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GymClient"
+        xmlns:vm="clr-namespace:GymClient.ViewModels"
+        xmlns:v="clr-namespace:GymClient.Views"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800"
-        ResizeMode="NoResize">
+        Title="MainWindow" Height="450" Width="800">
+    
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type vm:HomeViewModel}">
+            <v:HomePage />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:ClubViewModel}">
+            <v:ClubView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:Club2ViewModel}">
+            <v:ClubView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:Club3ViewModel}">
+            <v:ClubView />
+        </DataTemplate>
+    </Window.Resources>
     <Grid>
+
         <Grid.RowDefinitions>
-            <RowDefinition Height="25"/>
-            <RowDefinition/>
+            <RowDefinition Height="Auto" />
+            <!--Хедер-->
+            <RowDefinition Height="*" />
+            <!--Контент-->
         </Grid.RowDefinitions>
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
+        <Menu Grid.Row="0">
+            <Menu.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <DockPanel HorizontalAlignment="Stretch"/>
+                </ItemsPanelTemplate>
+            </Menu.ItemsPanel>
+            <MenuItem Header="Домой" ToolTip="домой">
+                <MenuItem.Template>
+                    <ControlTemplate>
+                        <Button Background="Transparent" BorderThickness="0" Margin="0 0 20 0" Command="{Binding ChangePageCommand}" CommandParameter="0">
+                            <Image Width="32" Height="32"
+                           Source="Images/home.png"/>
+                        </Button>
+                    </ControlTemplate>
+                </MenuItem.Template>
+            </MenuItem>
+            <MenuItem Header="Клубы">
+                <MenuItem Header="Первый" Command="{Binding ChangePageCommand}" CommandParameter="1"/>
+                <MenuItem Header="Второй" Command="{Binding ChangePageCommand}" CommandParameter="2"/>
+                <MenuItem Header="Третий" Command="{Binding ChangePageCommand}" CommandParameter="3"/>
+            </MenuItem>
+            <MenuItem Header="Расписание"/>
+            <MenuItem Header="Клиентам"/>
+            <MenuItem Header="Админка" HorizontalAlignment="Right" Visibility="Visible"/>
+        </Menu>
 
-        <Grid Grid.ColumnSpan="2" Background="MediumPurple">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
+        <ContentControl Grid.Row="1" Content="{Binding CurrentPageViewModel, UpdateSourceTrigger=PropertyChanged}" />
 
-            <TextBlock Text="Наши клубы"
-                       Foreground="Black"
-                       VerticalAlignment="Center"
-                       HorizontalAlignment="Center"
-                       Grid.Column="1"/>
-            <TextBlock Text="Расписание"
-                       Foreground="Black"
-                       Grid.Column="2"
-                       VerticalAlignment="Center"
-                       HorizontalAlignment="Center"/>
-            <TextBlock Text="Контакты"
-                       Foreground="Black"
-                       Grid.Column="3"
-                       VerticalAlignment="Center"
-                       HorizontalAlignment="Center"/>
-            <TextBlock Text="Клиентам"
-                       Grid.Column="6"
-                       VerticalAlignment="Center"
-                       HorizontalAlignment="Center"/>
-
-
-        </Grid>
-            <StackPanel Grid.Row="1">
-                
-                <StackPanel Orientation="Horizontal">
-                    <Image Width="100" Height="80"
-                           Source="Images/gymlogo.png"
-                           Margin="10"/>
-                </StackPanel>
-            <TextBlock Text="ФИТНЕС-КЛУБ"
-                       FontSize="20"
-                       FontWeight="ExtraBlack"
-                       Margin="10"
-                       FontFamily="Segoe Print"/>
-            <TextBlock Text="С БАССЕЙНОМ"
-                       FontSize="20"
-                       FontWeight="ExtraBlack"
-                       Margin="10, -15, 10, 0"
-                       FontFamily="Segoe Print"/>
-        
-                <StackPanel Orientation="Horizontal">
-
-                <Button Content="Оформить карту"
-                    Foreground="MediumPurple"
-                    FontSize="23"
-                    FontWeight="UltraBold"
-                    Margin="10">
-                    <Button.Style>
-                        <Style TargetType="Button">
-                            <Setter Property="Background" Value="LightGoldenrodYellow"/>
-                            <Setter Property="BorderBrush" Value="Purple"/>
-                        </Style>
-                    </Button.Style>
-                    <Button.Template>
-                        <ControlTemplate TargetType="Button">
-                            <Border Width="250" Height="40"
-                                    CornerRadius="25"
-                                    Background="Purple">
-                                <ContentPresenter HorizontalAlignment="Center"
-                                                  VerticalAlignment="Center"/>
-                            </Border>
-                        </ControlTemplate>
-                    </Button.Template>
-                </Button>
-
-
-            </StackPanel>
-        </StackPanel>
     </Grid>
 </Window>
