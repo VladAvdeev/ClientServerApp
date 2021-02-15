@@ -19,31 +19,86 @@ namespace GymClientServer.Controllers
     {
         private readonly EmployeeRepository employeeRepository;
         private readonly ClientRepository clientRepository;
+        private readonly ClubesRepository clubesRepository;
         public ModelsController(IConfiguration configuration)
         {
             employeeRepository = new EmployeeRepository(configuration);
             clientRepository = new ClientRepository(configuration);
+            clubesRepository = new ClubesRepository(configuration);
         }
+        #region Employeers Methods
         // GET: api/employeers
         [Route("employeers")]
         [HttpGet]
         public IEnumerable<Employee> GetAllEmp()
         {
             return employeeRepository.FindAll();
+            // GET api/employeers/5
+            //[Route("employeers/GetId/'{id}'")]
         }
+        [HttpGet("employeers/{id}")]
+        public Employee GetEmpById(int id)
+        {
+            return employeeRepository.FindById(id);
+        }
+        // POST api/employee
+        [Route("employee/add")]
+        [HttpPost]
+        public void AddEmp(Employee employee)
+        {
+            employeeRepository.Add(employee);
+        }
+        // PUT api/employee/5
+        //[Route("{api/employee/update/{id}}")]
+        [HttpPut("employee/update/{id}")]
+        public ResponseServer UpdateEmp(Employee employee)
+        {
+            ResponseServer response = new ResponseServer()
+            {
+                Action = "Обновление данных работника",
+                IsSuccess = false,
+                Message = "Не удалось обновить данные работника"
+            };
+            Employee oldEmp = employeeRepository.FindById(employee.Id);
+            if (oldEmp.Phone != employee.Phone)
+            {
+                response.IsSuccess = true;
+                employeeRepository.Update(employee);
+                response.Message = "Данные обновлены";
+            }
+            return response;
+        }
+        // DELETE api/<ValuesController>/5
+        [HttpDelete("employee/delete/{id}")]
+        public ResponseServer DeleteEmp(int? id)
+        {
+            ResponseServer response = new ResponseServer()
+            {
+                Action = "Удаление работника из списка",
+                IsSuccess = false,
+                Message = "Не удалось удалить работника из списка"
+            };
+            if (id != null)
+            {
+                response.IsSuccess = true;
+                employeeRepository.Remove(id.Value);
+                if (employeeRepository.FindById(id.Value) == null)
+                {
+                    response.Message = "Успешно удалено";
+                }
+            }
+            return response;
+
+        }
+        #endregion
+
+        #region Clients Methods
         // Get : api/clients
         [Route("clients")]
         [HttpGet]
         public IEnumerable<Client> GetAllClients()
         {
             return clientRepository.FindAll();
-        }
-        // GET api/employeers/5
-        //[Route("employeers/GetId/'{id}'")]
-        [HttpGet("employeers/{id}")]
-        public Employee GetEmpById(int id)
-        {
-            return employeeRepository.FindById(id);
         }
         //GET api/clients/5
         //[Route("api/clients/{id}")]
@@ -53,13 +108,6 @@ namespace GymClientServer.Controllers
             return clientRepository.FindById(id);
         }
 
-        // POST api/employee
-        [Route("employee/add")]
-        [HttpPost]
-        public void AddEmp(Employee employee)
-        {
-            employeeRepository.Add(employee);
-        }
         [Route("client/add")]
         [HttpPost]
         public void Add(Client client)
@@ -67,26 +115,6 @@ namespace GymClientServer.Controllers
             clientRepository.Add(client);
         }
 
-        // PUT api/employee/5
-        //[Route("{api/employee/update/{id}}")]
-        [HttpPut("employee/update/{id}")]
-        public ResponseServer UpdateEmp(Employee employee)
-        {
-            ResponseServer response = new ResponseServer() 
-            { 
-                Action = "Обновление данных работника", 
-                IsSuccess=false, 
-                Message = "Не удалось обновить данные работника" 
-            };
-            Employee oldEmp = employeeRepository.FindById(employee.Id);
-            if(oldEmp.Phone != employee.Phone)
-            {
-                response.IsSuccess = true;
-                employeeRepository.Update(employee);
-                response.Message = "Данные обновлены";
-            }
-            return response;
-        }
         [HttpPut("client/update/{id}")]
         public ResponseServer UpdateClient(Client client)
         {
@@ -105,28 +133,7 @@ namespace GymClientServer.Controllers
             }
             return response;
         }
-        // DELETE api/<ValuesController>/5
-        [HttpDelete("employee/delete/{id}")]
-        public ResponseServer DeleteEmp(int? id)
-        {
-            ResponseServer response = new ResponseServer()
-            {
-                Action = "Удаление работника из списка",
-                IsSuccess = false,
-                Message = "Не удалось удалить работника из списка"
-            };
-            if(id != null)
-            {
-                response.IsSuccess = true;
-                employeeRepository.Remove(id.Value);
-                if(employeeRepository.FindById(id.Value) == null)
-                {
-                    response.Message = "Успешно удалено";
-                }
-            }
-            return response;
 
-        }
         [HttpDelete("client/delete/{id}")]
         public ResponseServer DeleteClient(int? id)
         {
@@ -136,7 +143,7 @@ namespace GymClientServer.Controllers
                 IsSuccess = false,
                 Message = "Не удалось удалить клиента из списка"
             };
-            if(id != null)
+            if (id != null)
             {
                 response.IsSuccess = true;
                 clientRepository.Remove(id.Value);
@@ -147,6 +154,65 @@ namespace GymClientServer.Controllers
             }
             return response;
         }
-        
+        #endregion
+
+        #region Clubes Methods
+        [Route("clubes")]
+        [HttpGet]
+        public IEnumerable<Gym> GetGyms()
+        {
+            return clubesRepository.FindAll();
+        }
+        [HttpGet("clubes/{id}")]
+        public Gym FindGymById(int id)
+        {
+            return clubesRepository.FindById(id);
+        }
+        [Route("clubes/add")]
+        [HttpPost]
+        public void GymAdd(Gym gym)
+        {
+            clubesRepository.Add(gym);
+        }
+        [HttpPut("clubes/update/{id}")]
+        public ResponseServer UpdateGym(Gym gym)
+        {
+            ResponseServer response = new ResponseServer()
+            {
+                Action = "Обновление данных работника",
+                IsSuccess = false,
+                Message = "Не удалось обновить данные работника"
+            };
+            Gym oldGym = clubesRepository.FindById(gym.Id);
+            if (oldGym.Adress != gym.Adress)
+            {
+                response.IsSuccess = true;
+                clubesRepository.Update(gym);
+                response.Message = "Данные обновлены";
+            }
+            return response;
+        }
+        [HttpDelete("clubes/delete/{id}")]
+        public ResponseServer DeleteGym(int? id)
+        {
+            ResponseServer response = new ResponseServer()
+            {
+                Action = "Удаление работника из списка",
+                IsSuccess = false,
+                Message = "Не удалось удалить работника из списка"
+            };
+            if (id != null)
+            {
+                response.IsSuccess = true;
+                clubesRepository.Remove(id.Value);
+                if (clubesRepository.FindById(id.Value) == null)
+                {
+                    response.Message = "Успешно удалено";
+                }
+            }
+            return response;
+
+        }
+        #endregion
     }
 }
