@@ -22,6 +22,9 @@
         <DataTemplate DataType="{x:Type vm:Club3ViewModel}">
             <v:ClubView />
         </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:AdminViewModel}">
+            <v:AdminControl1/>
+        </DataTemplate>
     </Window.Resources>
     <Grid>
 
@@ -41,8 +44,9 @@
             <MenuItem Header="Домой" ToolTip="домой">
                 <MenuItem.Template>
                     <ControlTemplate>
-                        <Button Background="Transparent" BorderThickness="0" Margin="0 0 20 0" Command="{Binding ChangePageCommand}" CommandParameter="0">
-                            <Image Width="32" Height="32"
+                        <Button Background="Transparent" BorderThickness="0" Margin="0 0 20 0" 
+                                Command="{Binding ChangePageCommand}" CommandParameter="0" >
+                            <Image Width="30" Height="20"
                            Source="Images/home.png"/>
                         </Button>
                     </ControlTemplate>
@@ -54,11 +58,13 @@
                 <MenuItem Header="Третий" Command="{Binding ChangePageCommand}" CommandParameter="3"/>
             </MenuItem>
             <MenuItem Header="Расписание"/>
-            <MenuItem Header="Клиентам"/>
-            <MenuItem Header="Админка" HorizontalAlignment="Right" Visibility="Visible"/>
+            <MenuItem Header="Клиентам" />
+            <MenuItem Header="Админка" HorizontalAlignment="Right" Visibility="Visible" 
+                      Command="{Binding ChangePageCommand}" CommandParameter="4"/>
         </Menu>
 
         <ContentControl Grid.Row="1" Content="{Binding CurrentPageViewModel, UpdateSourceTrigger=PropertyChanged}" />
+        <ContentControl Grid.Row="4" Content="{Binding CurrentPageViewModel, UpdateSourceTrigger=PropertyChanged}"/>
 
     </Grid>
 </Window>
