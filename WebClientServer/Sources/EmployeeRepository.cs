@@ -47,8 +47,8 @@ namespace GymClientServer.Sources
             using (IDbConnection dbConnection = ConnectionDb)
             {
                 dbConnection.Open();
-                dbConnection.Execute($"INSERT INTO {tableName} (FirstName, LastName, BirthDay, Phone, Email, EmpId) " +
-                    $"VALUES (@FirstName, @LastName, @BirthDay, @Phone, @Email, @EmpId)", employee);
+                dbConnection.Execute($"INSERT INTO {tableName} (FirstName, LastName, BirthDay, Phone, Email, EmpId, clubId) " +
+                    $"VALUES (@FirstName, @LastName, @BirthDay, @Phone, @Email, @EmpId, @clubId)", employee);
             }
         }
         public void Remove(int id)
@@ -65,7 +65,7 @@ namespace GymClientServer.Sources
             using (IDbConnection dbConnection = ConnectionDb)
             {
                 dbConnection.Open();
-                dbConnection.Query($"UPDATE {tableName} SET FirstName = @FirstName, LastName = @LastName, BirthDay = @BirthDay, Phone = @Phone, EmpId = @EmpId WHERE Id = {employee.Id}", employee);
+                dbConnection.Query($"UPDATE {tableName} SET FirstName = @FirstName, LastName = @LastName, BirthDay = @BirthDay, Phone = @Phone, EmpId = @EmpId, clubId = @clubId WHERE Id = {employee.Id}", employee);
                 dbConnection.Close();
             }
         }

@@ -46,10 +46,9 @@ namespace GymClientServer.Sources
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
-                dbConnection.Execute($"INSERT INTO {tableName}(FirstName, LastName, BirthDay, Phone, Email, ClientId, GymTicketId, " +
-                    $"GymTicketPeriod, GymTicketBestBefore) " +
-                    $"VALUES(@FirstName, @LastName, @BirthDay, @Phone, @Email, @ClientId, @GymTicketId," +
-                    $"@GymTicketPeriod, @GymTicketBestBefore ", client);
+                dbConnection.Execute($"INSERT INTO {tableName}(FirstName, LastName, BirthDay, Phone, Email, ClientId, GymTicketId, ClubClientId " +
+                    $"TicketName, TicketUseful) " +
+                    $"VALUES(@FirstName, @LastName, @BirthDay, @Phone, @Email, @ClientId, @GymTicketId, @ClubClientId" , client);
                 dbConnection.Close();
             }
         }
@@ -68,8 +67,8 @@ namespace GymClientServer.Sources
             {
                 dbConnection.Open();
                 dbConnection.Query($"UPDATE {tableName} SET FirstName = @FirstName, LastName = @LastName, BirthDay = @BirthDay, Phone = @Phone, " +
-                    $"Email = @Email, ClientId = @ClientId, GymTicketId = @GymTicketId, GymTicketPeriod = @GymTicketPeriod, GymTicketBestBefore = " +
-                    $"@GymTicketBestBefore WHERE Id = {client.Id}", client);
+                    $"Email = @Email, ClientId = @ClientId, GymTicketId = @GymTicketId, ClubClientId = @ClubClientId" +
+                    $"WHERE Id = {client.Id}", client);
                 dbConnection.Close();
             }
         }

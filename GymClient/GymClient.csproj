@@ -107,6 +107,7 @@
     <Compile Include="ClientsREST\AdminServer.cs" />
     <Compile Include="ClientsREST\GymServer.cs" />
     <Compile Include="ViewModels\AdminViewModel.cs" />
+    <Compile Include="ViewModels\ClientViewModel.cs" />
     <Compile Include="ViewModels\Club2ViewModel.cs" />
     <Compile Include="ViewModels\Club3ViewModel.cs" />
     <Compile Include="ViewModels\ClubViewModel.cs" />
@@ -115,6 +116,9 @@
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="Views\AdminPage.xaml.cs">
       <DependentUpon>AdminPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ClientControl.xaml.cs">
+      <DependentUpon>ClientControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ClubView.xaml.cs">
       <DependentUpon>ClubView.xaml</DependentUpon>
@@ -146,6 +150,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\AdminPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ClientControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

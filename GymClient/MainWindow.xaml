@@ -25,6 +25,9 @@
         <DataTemplate DataType="{x:Type vm:AdminViewModel}">
             <v:AdminControl1/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:ClientViewModel}">
+            <v:ClientControl/>
+        </DataTemplate>
     </Window.Resources>
     <Grid>
 
@@ -58,7 +61,7 @@
                 <MenuItem Header="Третий" Command="{Binding ChangePageCommand}" CommandParameter="3"/>
             </MenuItem>
             <MenuItem Header="Расписание"/>
-            <MenuItem Header="Клиентам" />
+            <MenuItem Header="Клиентам" Command="{Binding ChangePageCommand}" CommandParameter="5"/>
             <MenuItem Header="Админка" HorizontalAlignment="Right" Visibility="Visible" 
                       Command="{Binding ChangePageCommand}" CommandParameter="4"/>
         </Menu>

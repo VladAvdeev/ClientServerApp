@@ -29,7 +29,8 @@ namespace GymClient.ViewModels
               new ClubViewModel(),
               new Club2ViewModel(),
               new Club3ViewModel(),
-              new AdminViewModel()
+              new AdminViewModel(),
+              new ClientViewModel()
             };
         }
 
