@@ -34,7 +34,20 @@
         <GridSplitter Grid.Column="1" Width="3" Background="#51B7F9">
         </GridSplitter>
         <StackPanel Grid.Column="2">
-            <Button Content="Обновить" Width="200" Margin="10 10 10 10" Command="{Binding RefreshCommand}"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                <Button Content="Обновить" Width="70" Margin="10 10 10 10" Command="{Binding RefreshCommand}" 
+                    HorizontalAlignment="Left"/>
+                <Button Content="Добавить" Width="70" Margin="0 10 10 10" Grid.Column="2"/>
+                <Button Content="Изменить" Width="70" Margin="0 10 10 10" Grid.Column="3"/>
+                <Button Content="Удалить" Grid.Column="4" Width="70" Margin="0 10 10 10"/>
+            </Grid>
             <!--<TextBlock Text="{Binding AdminName}"/>-->
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -45,10 +58,10 @@
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id}" Width="100"/>
-                            <GridViewColumn Header="FirstName" DisplayMemberBinding="{Binding FirstName}" Width="100"/>
-                            <GridViewColumn Header="LastName" DisplayMemberBinding="{Binding LastName}" Width="100"/>
-                            <GridViewColumn Header="Email" DisplayMemberBinding="{Binding Email}" Width="100"/>
-                            <GridViewColumn Header="Phone" DisplayMemberBinding="{Binding Phone}" Width="150"/>
+                            <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding FirstName}" Width="100"/>
+                            <GridViewColumn Header="Фамилия" DisplayMemberBinding="{Binding LastName}" Width="100"/>
+                            <GridViewColumn Header="Почта" DisplayMemberBinding="{Binding Email}" Width="120"/>
+                            <GridViewColumn Header="Номер телефона" DisplayMemberBinding="{Binding Phone}" Width="150"/>
                         </GridView>
                     </ListView.View>
                 </ListView>
