@@ -54,13 +54,14 @@
                     <ColumnDefinition Width="223*"/>
                     <ColumnDefinition Width="336*"/>
                 </Grid.ColumnDefinitions>
-                <ListView x:Name="TableEmp" Grid.Column ="0" ItemsSource="{Binding Employees, Mode=OneWay}" Grid.ColumnSpan="2" Margin="0,0,0,17">
+                <ListView x:Name="TableEmp" Grid.Column ="0" ItemsSource="{Binding Employees, Mode=OneWay}" Grid.ColumnSpan="2" Margin="0,0,0,17"
+                          ScrollViewer.CanContentScroll="True">
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id}" Width="100"/>
                             <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding FirstName}" Width="100"/>
                             <GridViewColumn Header="Фамилия" DisplayMemberBinding="{Binding LastName}" Width="100"/>
-                            <GridViewColumn Header="Почта" DisplayMemberBinding="{Binding Email}" Width="120"/>
+                            <GridViewColumn Header="Почта" DisplayMemberBinding="{Binding Email}" Width="140"/>
                             <GridViewColumn Header="Номер телефона" DisplayMemberBinding="{Binding Phone}" Width="150"/>
                         </GridView>
                     </ListView.View>

@@ -1,5 +1,5 @@
-﻿using CommonLibrary1;
-using CommonLibrary1.Models;
+﻿using CommonLibrary.Models;
+using CommonLibrary1;
 using RestSharp;
 using RestSharp.Serialization.Json;
 using System;
@@ -9,40 +9,40 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GymClient.RestClients
+namespace GymClient.ClientsREST
 {
-    public class GymServer
+    public class ClientsServer
     {
         private string adress = "https://localhost:5001";
         private RestClient client;
-        public GymServer()
+        public ClientsServer()
         {
             client = new RestClient(adress);
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
             client.RemoteCertificateValidationCallback = (sender, certificate, chain, sslPolicyErrors) => true;
         }
-        public List<Gym> GetGyms()
+        public List<Client> GetClients()
         {
-            var request = new RestRequest("api/clubes", Method.GET);
-            return client.Execute<List<Gym>>(request).Data;
+            var request = new RestRequest("api/clients", Method.GET);
+            return client.Execute<List<Client>>(request).Data;
         }
-        public ResponseServer AddGym(Gym gym)
+        public ResponseServer AddClient(Client newClient)
         {
-            var request = new RestRequest("api/clubes/add", Method.POST);
+            var request = new RestRequest("api/clients/add", Method.POST);
             request.JsonSerializer = new JsonSerializer();
-            request.AddJsonBody(gym);
+            request.AddJsonBody(newClient);
             return client.Execute<ResponseServer>(request).Data;
         }
-        public ResponseServer ChangeGym(Gym gym)
+        public ResponseServer UpdateClient(Client updClient)
         {
-            var request = new RestRequest("api/clubes/update", Method.PUT);
+            var request = new RestRequest("api/clients/update", Method.PUT);
             request.JsonSerializer = new JsonSerializer();
-            request.AddJsonBody(gym);
+            request.AddJsonBody(updClient);
             return client.Execute<ResponseServer>(request).Data;
         }
-        public ResponseServer DeleteGym(int id)
+        public ResponseServer DeleteClient(int? id)
         {
-            var request = new RestRequest("api/clubes/delete", Method.DELETE);
+            var request = new RestRequest("api/clients/delete", Method.DELETE);
             return client.Execute<ResponseServer>(request).Data;
         }
     }
