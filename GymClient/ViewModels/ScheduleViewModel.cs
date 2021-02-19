@@ -9,6 +9,6 @@ namespace GymClient.ViewModels
 {
     public class ScheduleViewModel : NotifyPropertyChanged, IPageViewModel
     {
-
+        
     }
 }

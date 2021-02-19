@@ -73,6 +73,18 @@ namespace GymClient.ViewModels
             get => empId;
             set => SetProperty(ref empId, value);
         }
+        private CareerPost careerPost;
+        public CareerPost CareerPost
+        {
+            get => careerPost;
+            set => SetProperty(ref careerPost, value);
+        }
+        private Gym gymAccess;
+        public Gym GymAcces
+        {
+            get => gymAccess;
+            set => SetProperty(ref gymAccess, value);
+        }
         public ICommand RefreshCommand { get; }
         public AdminViewModel()
         {

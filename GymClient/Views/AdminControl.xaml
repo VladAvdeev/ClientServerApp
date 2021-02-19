@@ -63,6 +63,8 @@
                             <GridViewColumn Header="Фамилия" DisplayMemberBinding="{Binding LastName}" Width="100"/>
                             <GridViewColumn Header="Почта" DisplayMemberBinding="{Binding Email}" Width="140"/>
                             <GridViewColumn Header="Номер телефона" DisplayMemberBinding="{Binding Phone}" Width="150"/>
+                            <GridViewColumn Header="Должность" DisplayMemberBinding="{Binding CareerPost.PostName}" Width="100"/>
+                            <GridViewColumn Header="Клуб" DisplayMemberBinding="{Binding Gym.Adress}" Width="100"/>
                         </GridView>
                     </ListView.View>
                 </ListView>
