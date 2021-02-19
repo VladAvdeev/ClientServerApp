@@ -28,6 +28,9 @@
         <DataTemplate DataType="{x:Type vm:ClientViewModel}">
             <v:ClientControl/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:ScheduleViewModel}">
+            <v:SchedulePage/>
+        </DataTemplate>
     </Window.Resources>
     <Grid>
 
@@ -60,7 +63,7 @@
                 <MenuItem Header="Второй" Command="{Binding ChangePageCommand}" CommandParameter="2"/>
                 <MenuItem Header="Третий" Command="{Binding ChangePageCommand}" CommandParameter="3"/>
             </MenuItem>
-            <MenuItem Header="Расписание"/>
+            <MenuItem Header="Расписание" Command="{Binding ChangePageCommand}" CommandParameter="6"/>
             <MenuItem Header="Клиентам" Command="{Binding ChangePageCommand}" CommandParameter="5"/>
             <MenuItem Header="Админка" HorizontalAlignment="Right" Visibility="Visible" 
                       Command="{Binding ChangePageCommand}" CommandParameter="4"/>

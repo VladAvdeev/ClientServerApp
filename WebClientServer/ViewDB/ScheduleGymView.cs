@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace GymClientServer.ViewDB
 {
-    public class ScheduleGym
+    public class ScheduleGymView
     {
         public int Id { get; set; }
         public string FirstName { get; set; }

@@ -11,7 +11,7 @@ namespace GymClient.ViewModels
 {
     public class ClubViewModel : NotifyPropertyChanged, IPageViewModel
     {
-        public string ClubName { get; set; } = "Первый";
+        public string ClubName { get; set; } = "М. Молодежная";
         private Gym selectedGym;
         public Gym SelectedGym
         {
