@@ -46,7 +46,7 @@ namespace GymClientServer.Sources
                         Phone = emp.Phone,
                         Email = emp.Email,
                         CareerPost = new CareerPost() { PostName = emp.PostName },
-                        GymAcces = new Gym() { Adress = emp.Adress },
+                        Gym = new Gym() { Adress = emp.Adress },
                     };
                     employeesList.Add(employee);
                 }
@@ -67,8 +67,8 @@ namespace GymClientServer.Sources
             using (IDbConnection dbConnection = ConnectionDb)
             {
                 dbConnection.Open();
-                dbConnection.Execute($"INSERT INTO {tableName} (FirstName, LastName, BirthDay, Phone, Email, EmpId, clubId, ScheduleId) " +
-                    $"VALUES (@FirstName, @LastName, @BirthDay, @Phone, @Email, @EmpId, @ClubId, @ScheduleId)", employee);
+                dbConnection.Execute($"INSERT INTO {tableName} (FirstName, LastName, BirthDay, Phone, Email, EmpId, clubId) " +
+                    $"VALUES (@FirstName, @LastName, @BirthDay, @Phone, @Email, @EmpId, @ClubId)", employee);
             }
         }
         public void Remove(int id)

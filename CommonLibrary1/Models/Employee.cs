@@ -10,9 +10,8 @@ namespace CommonLibrary1.Models
         //public string CareerPost { get; set; }
         public int EmpId { get; set; }
         public int ClubId { get; set; }
-        public int ShceduleId { get; set; }
         public CareerPost CareerPost { get; set; }
-        public Gym GymAcces { get; set; }
+        public Gym Gym { get; set; }
 
     }
     public class CareerPost
