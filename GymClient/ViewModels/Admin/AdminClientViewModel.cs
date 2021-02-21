@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GymClient.ViewModels
+namespace GymClient.ViewModels.Admin
 {
     class AdminClientViewModel
     {

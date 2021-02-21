@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace GymClient.Views
+namespace GymClient.Views.Admin
 {
     /// <summary>
     /// Логика взаимодействия для AdminControl1.xaml
     /// </summary>
-    public partial class AdminControl1 : UserControl
+    public partial class AdminControl : UserControl
     {
-        public AdminControl1()
+        public AdminControl()
         {
             InitializeComponent();
         }

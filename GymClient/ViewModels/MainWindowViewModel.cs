@@ -1,4 +1,8 @@
 ﻿using GymClient.Core;
+using GymClient.Services;
+using GymClient.ViewModels.Admin;
+using GymClient.Views.Admin;
+using Ninject;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,14 +15,20 @@ namespace GymClient.ViewModels
     public class MainWindowViewModel : NotifyPropertyChanged
     {
         private IPageViewModel currentPageViewModel;
+        private IWindowService windowService;
         public ICommand ChangePageCommand { get; }
+        public ICommand OpenAdminWindowCommand { get; }
         public List<IPageViewModel> PageViewModels { get; set; }
 
         public MainWindowViewModel()
         {
+
+            windowService = NinjectDI.Instanse.Get<IWindowService>();
+
             InitPages();
             CurrentPageViewModel = PageViewModels[0];
             ChangePageCommand = new Command((x) => ChangeViewModel(Convert.ToInt32(x)));
+            OpenAdminWindowCommand = new Command(OpenAdminWindow);
         }
 
         private void InitPages()
@@ -29,7 +39,6 @@ namespace GymClient.ViewModels
               new ClubViewModel(),
               new Club2ViewModel(),
               new Club3ViewModel(),
-              new AdminEmployeeViewModel(),
               new ClientViewModel(),
               new ScheduleViewModel()
             };
@@ -50,6 +59,11 @@ namespace GymClient.ViewModels
                     SetProperty(ref currentPageViewModel, value);
                 }
             }
+        }
+
+        private void OpenAdminWindow()
+        {
+            windowService.ShowDialogEffect(new AdminWindowView(), new AdminWindowViewModel());
         }
 
         private void ChangeViewModel(int viewModel)

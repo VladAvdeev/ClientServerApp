@@ -22,15 +22,6 @@
         <DataTemplate DataType="{x:Type vm:Club3ViewModel}">
             <v:ClubView />
         </DataTemplate>
-        <DataTemplate DataType="{x:Type vm:AdminEmployeeViewModel}">
-            <v:AdminControl1/>
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type vm:ClientViewModel}">
-            <v:ClientControl/>
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type vm:ScheduleViewModel}">
-            <v:SchedulePage/>
-        </DataTemplate>
     </Window.Resources>
     <Grid>
 
@@ -66,7 +57,7 @@
             <MenuItem Header="Расписание" Command="{Binding ChangePageCommand}" CommandParameter="6"/>
             <MenuItem Header="Клиентам" Command="{Binding ChangePageCommand}" CommandParameter="5"/>
             <MenuItem Header="Админка" HorizontalAlignment="Right" Visibility="Visible" 
-                      Command="{Binding ChangePageCommand}" CommandParameter="4"/>
+                      Command="{Binding OpenAdminWindowCommand}"/>
         </Menu>
 
         <ContentControl Grid.Row="1" Content="{Binding CurrentPageViewModel, UpdateSourceTrigger=PropertyChanged}" />

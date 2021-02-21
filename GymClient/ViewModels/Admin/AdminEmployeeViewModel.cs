@@ -12,7 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace GymClient.ViewModels
+namespace GymClient.ViewModels.Admin
 {
     public class AdminEmployeeViewModel : NotifyPropertyChanged, IPageViewModel
     {
