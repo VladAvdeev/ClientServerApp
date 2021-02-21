@@ -2,6 +2,7 @@
 using CommonLibrary1.Models;
 using GymClient.ClientsREST;
 using GymClient.Core;
+using GymClient.Entities;
 using GymClient.Helpers;
 using RestSharp;
 using System;
@@ -146,7 +147,7 @@ namespace GymClient.ViewModels.Admin
             DeleteCommand = new Command(Delete, () => SelectedEmployee != null);
             AddCommand = new Command(Add, () => SendCondition());
             ChangeCommand = new Command(Update, () => SendCondition());
-
+            CareerPosts = Handbook.CareerPosts;
         }
         private void Refresh()
         {

@@ -9,7 +9,7 @@
     <Grid>
         <TabControl>
             <TabItem Header="Сотрудники">
-                <local:AdminControl DataContext="{Binding AdminWindowViewModel}"/>
+                <local:AdminControl DataContext="{Binding AdminEmployeeViewModel}"/>
             </TabItem>
         </TabControl>
     </Grid>

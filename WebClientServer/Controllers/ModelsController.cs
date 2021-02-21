@@ -221,6 +221,7 @@ namespace GymClientServer.Controllers
         [HttpGet]
         public IEnumerable<CareerPost> FindAllPosts()
         {
+            var qwe = postsRepository.FindAll();
             return postsRepository.FindAll();
         }
         [HttpGet("posts/{id}")]

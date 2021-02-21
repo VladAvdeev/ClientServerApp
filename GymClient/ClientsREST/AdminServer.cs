@@ -11,16 +11,14 @@ using System.Threading.Tasks;
 
 namespace GymClient.ClientsREST
 {
-    public class AdminServer
+    public class AdminServer : BaseRestServer
     {
-        private string adress = "https://localhost:5001";
+        //private string adress = "https://localhost:5001";
         private RestClient client;
 
         public AdminServer()
         {
-            client = new RestClient(adress);
-            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-            client.RemoteCertificateValidationCallback = (sender, certificate, chain, sslPolicyErrors) => true;
+            client = CreateClient();
         }
         public List<Employee> GetEmployees()
         {

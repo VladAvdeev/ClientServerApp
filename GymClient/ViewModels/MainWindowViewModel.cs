@@ -1,4 +1,5 @@
 ﻿using GymClient.Core;
+using GymClient.Entities;
 using GymClient.Services;
 using GymClient.ViewModels.Admin;
 using GymClient.Views.Admin;
@@ -27,6 +28,7 @@ namespace GymClient.ViewModels
 
             InitPages();
             CurrentPageViewModel = PageViewModels[0];
+            Handbook.Load();
             ChangePageCommand = new Command((x) => ChangeViewModel(Convert.ToInt32(x)));
             OpenAdminWindowCommand = new Command(OpenAdminWindow);
         }
@@ -63,7 +65,7 @@ namespace GymClient.ViewModels
 
         private void OpenAdminWindow()
         {
-            windowService.ShowDialogEffect(new AdminWindowView(), new AdminWindowViewModel());
+            windowService.Show(new AdminWindowView(), new AdminWindowViewModel());
         }
 
         private void ChangeViewModel(int viewModel)

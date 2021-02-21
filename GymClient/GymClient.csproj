@@ -118,8 +118,11 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ClientsREST\AdminServer.cs" />
+    <Compile Include="ClientsREST\BaseRestServer.cs" />
     <Compile Include="ClientsREST\ClientsServer.cs" />
     <Compile Include="ClientsREST\GymServer.cs" />
+    <Compile Include="ClientsREST\PostServer.cs" />
+    <Compile Include="Entities\Handbook.cs" />
     <Compile Include="Services\DiConfigModule.cs" />
     <Compile Include="Services\NingectInstanse.cs" />
     <Compile Include="Services\WindowService.cs" />

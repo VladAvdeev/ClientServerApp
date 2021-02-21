@@ -13,5 +13,6 @@ namespace GymClient
     /// </summary>
     public partial class App : Application
     {
+
     }
 }
