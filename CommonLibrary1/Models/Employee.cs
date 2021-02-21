@@ -15,7 +15,7 @@ namespace CommonLibrary1.Models
         public Gym Gym { get; set; }
 
     }
-    public class CareerPost
+    public class CareerPost : BaseEntity
     {
         public int Id { get; set; }
         public string PostName { get; set; }

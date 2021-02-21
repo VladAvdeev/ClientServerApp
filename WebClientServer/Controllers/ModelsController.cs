@@ -20,11 +20,13 @@ namespace GymClientServer.Controllers
         private readonly EmployeeRepository employeeRepository;
         private readonly ClientRepository clientRepository;
         private readonly ClubesRepository clubesRepository;
+        private readonly PostsRepository postsRepository;
         public ModelsController(IConfiguration configuration)
         {
             employeeRepository = new EmployeeRepository(configuration);
             clientRepository = new ClientRepository(configuration);
             clubesRepository = new ClubesRepository(configuration);
+            postsRepository = new PostsRepository(configuration);
         }
         #region Employeers Methods
         // GET: api/employeers
@@ -212,6 +214,61 @@ namespace GymClientServer.Controllers
             }
             return response;
 
+        }
+        #endregion
+        #region Post Methods
+        [Route("posts")]
+        [HttpGet]
+        public IEnumerable<CareerPost> FindAllPosts()
+        {
+            return postsRepository.FindAll();
+        }
+        [HttpGet("posts/{id}")]
+        public CareerPost GetCareerPost(int id)
+        {
+            return postsRepository.FindById(id);
+        }
+        [HttpPost("post/add")]
+        public void AddPost(CareerPost careerPost)
+        {
+            postsRepository.Add(careerPost);
+        }
+        [HttpPut("post/update/{id}")]
+        public ResponseServer Update(CareerPost careerPost)
+        {
+            ResponseServer response = new ResponseServer() 
+            { 
+                Action = "Обновление должностей", 
+                IsSuccess = false, 
+                Message = "Не удалось изменить данные" 
+            };
+            CareerPost oldCareerPost1 = postsRepository.FindById(careerPost.Id);
+            if(oldCareerPost1.PostName != careerPost.PostName)
+            {
+                response.IsSuccess = true;
+                response.Message = "Успешно обновлено";
+            }
+            return response;
+        }
+        [HttpDelete("post/delete/{id}")]
+        public ResponseServer DeletePost(int? id)
+        {
+            ResponseServer response = new ResponseServer()
+            {
+                Action = "Удаление должности из списка",
+                IsSuccess = false,
+                Message = "Не удалось удалить должность из списка"
+            };
+            if (id != null)
+            {
+                response.IsSuccess = true;
+                postsRepository.Remove(id.Value);
+                if (postsRepository.FindById(id.Value) == null)
+                {
+                    response.Message = "Успешно удалено";
+                }
+            }
+            return response;
         }
         #endregion
     }
