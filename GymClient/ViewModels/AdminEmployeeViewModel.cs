@@ -36,9 +36,13 @@ namespace GymClient.ViewModels
                 LastName = SelectedEmployee?.LastName;
                 Phone = SelectedEmployee?.Phone;
                 Email = SelectedEmployee?.Email;
+                EmpId = SelectedEmployee?.EmpId;
+                PostId = SelectedEmployee.CareerPost.Id;
+                ClubId = SelectedEmployee?.ClubId;
+                ScheduleId = SelectedEmployee?.ScheduleId;
                 if(SelectedEmployee != null)
                 {
-                    SelectedCareerPost = CareerPosts.Where(x => x.Id == SelectedEmployee.EmpId).FirstOrDefault();
+                    SelectedCareerPost = CareerPosts.Where(x => x.Id == SelectedEmployee.CareerPost.Id).FirstOrDefault();
                 }
 
             }
@@ -79,24 +83,31 @@ namespace GymClient.ViewModels
             get => email;
             set => SetProperty(ref email, value);
         }
-        public int empId;
-        public int EmpId
+        public int? empId;
+        public int? EmpId
         {
             get => empId;
             set => SetProperty(ref empId, value);
         }
-        private int clubId;
-        public int ClubId
+        private int? clubId;
+        public int? ClubId
         {
             get => clubId;
             set => SetProperty(ref clubId, value);
         }
-        //private int scheduleId;
-        //public int ScheduleId
-        //{
-        //    get => scheduleId;
-        //    set => SetProperty(ref scheduleId, value);
-        //}
+        private int? scheduleId;
+        public int? ScheduleId
+        {
+            get => scheduleId;
+            set => SetProperty(ref scheduleId, value);
+        }
+        private int? postId;
+        public int? PostId
+        {
+            get => postId;
+            set => SetProperty(ref postId, value);
+        }
+
         private CareerPost selectedCareerPost;
         public CareerPost SelectedCareerPost
         {
@@ -135,7 +146,6 @@ namespace GymClient.ViewModels
             DeleteCommand = new Command(Delete, () => SelectedEmployee != null);
             AddCommand = new Command(Add, () => SendCondition());
             ChangeCommand = new Command(Update, () => SendCondition());
-            CareerPosts = new List<CareerPost>();
 
         }
         private void Refresh()
@@ -152,7 +162,7 @@ namespace GymClient.ViewModels
         private void Add()
         {
             Employee employee = new Employee() {Id = Id.Value, FirstName = FirstName, LastName = LastName, Birthday = BirthDay, Phone = Phone, 
-                Email = Email, EmpId = EmpId, ClubId = ClubId, CareerPost = SelectedCareerPost};
+                Email = Email, EmpId = EmpId.Value, ClubId = ClubId.Value, CareerPost = SelectedCareerPost, ScheduleId=ScheduleId.Value};
             ResponseServer response = admin.AddEmployee(employee);
             NotificationHelper.Instance.ShowResponse(response);
             Refresh();
