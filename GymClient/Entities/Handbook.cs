@@ -2,13 +2,14 @@
 using GymClient.ClientsREST;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace GymClient.Entities
 {
-    public class Handbook
+    public static class Handbook
     {
         public static List<CareerPost> CareerPosts { get; set; }
         public static void Load()

@@ -147,7 +147,7 @@ namespace GymClient.ViewModels.Admin
             DeleteCommand = new Command(Delete, () => SelectedEmployee != null);
             AddCommand = new Command(Add, () => SendCondition());
             ChangeCommand = new Command(Update, () => SendCondition());
-            CareerPosts = Handbook.CareerPosts;
+            CareerPosts = Handbook.CareerPosts.ToList();
         }
         private void Refresh()
         {

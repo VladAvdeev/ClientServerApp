@@ -39,7 +39,7 @@ namespace GymClient.ClientsREST
             request.AddJsonBody(employee);
             return client.Execute<ResponseServer>(request).Data;
         }
-        public ResponseServer DeleteEmployee(int id)
+        public ResponseServer DeleteEmployee(int? id)
         {
             var request = new RestRequest("Api/Employee/Delete", Method.DELETE);
             return client.Execute<ResponseServer>(request).Data;
