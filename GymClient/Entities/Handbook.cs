@@ -11,11 +11,11 @@ namespace GymClient.Entities
 {
     public static class Handbook
     {
-        public static List<CareerPost> CareerPosts { get; set; }
+        public static List<CareerPost> PostNames { get; set; }
         public static void Load()
         {
             PostServer post = new PostServer();
-            CareerPosts = post.GetCareerPosts() ?? new List<CareerPost>();
+            PostNames = post.GetCareerPosts() ?? new List<CareerPost>();
         }
     }
 }

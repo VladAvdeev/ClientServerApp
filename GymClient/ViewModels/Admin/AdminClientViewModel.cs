@@ -36,7 +36,7 @@ namespace GymClient.ViewModels.Admin
                 Phone = selectedClient?.Phone;
                 Email = SelectedClient?.Email;
                 ClientId = SelectedClient?.ClientId;
-                GymTicketId = SelectedClient?.GymTickettId;
+                GymTicketId = SelectedClient?.GymTicketId;
                 ClubClientId = SelectedClient?.ClubClientId;
                 TycketType = SelectedClient?.TicketType;
                 TicketUseful = SelectedClient?.TicketUseful;
@@ -140,7 +140,7 @@ namespace GymClient.ViewModels.Admin
                 ClientId = ClientId.Value,
                 TicketType = TycketType,
                 TicketUseful = TicketUseful,
-                GymTickettId = GymTicketId.Value,
+                GymTicketId = GymTicketId.Value,
                 ClubClientId = ClubClientId.Value
             };
             ResponseServer response = adminClient.AddClient(newClient);
@@ -160,7 +160,7 @@ namespace GymClient.ViewModels.Admin
                 ClientId = ClientId.Value,
                 TicketType = TycketType,
                 TicketUseful = TicketUseful,
-                GymTickettId = GymTicketId.Value,
+                GymTicketId = GymTicketId.Value,
                 ClubClientId = ClubClientId.Value
             };
             ResponseServer response = adminClient.UpdateClient(oldClient);

@@ -46,7 +46,7 @@ namespace GymClientServer.Sources
                         Phone = c.Phone,
                         Email = c.Email,
                         ClientId = c.ClientId,
-                        GymTickettId = c.GymTicketId,
+                        GymTicketId = c.GymTicketId,
                         ClubClientId = c.ClubClientId,
                         TicketType = c.TicketType,
                         TicketUseful = c.TicketUseful

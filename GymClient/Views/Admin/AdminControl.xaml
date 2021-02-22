@@ -62,9 +62,9 @@
                         <TextBlock Margin="10" Text="Должность:" FontSize="12" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Left"/>
                         
                         <ComboBox Grid.Row="5" Grid.Column="1"
-                                      ItemsSource="{Binding CareerPosts, Mode=OneWay}"
-                                      SelectedItem="{Binding SelectedCareerPost}"
-                                      DisplayMemberPath="CareerPost" SelectedValuePath="Id" Height="25" Width="180"
+                                      ItemsSource="{Binding PostNames, Mode=OneWay}"
+                                      SelectedItem="{Binding SelectedPostName}"
+                                      DisplayMemberPath="PostName" SelectedValuePath="Id" Height="25" Width="180"
                                   Margin="0 10 10 0"
                                       />
                         <TextBlock Margin="10" Text="Клуб:" FontSize="12" Grid.Row="6" Grid.Column="0" HorizontalAlignment="Left"/>
@@ -125,7 +125,7 @@
                             <GridViewColumn Header="Фамилия" DisplayMemberBinding="{Binding LastName}" Width="100"/>
                             <GridViewColumn Header="Почта" DisplayMemberBinding="{Binding Email}" Width="160"/>
                             <GridViewColumn Header="Номер телефона" DisplayMemberBinding="{Binding Phone}" Width="160"/>
-                            <GridViewColumn Header="Должность" DisplayMemberBinding="{Binding CareerPost.PostName}" Width="150"/>
+                            <GridViewColumn Header="Должность" DisplayMemberBinding="{Binding PostName.PostName}" Width="150"/>
                             <GridViewColumn Header="Клуб" DisplayMemberBinding="{Binding Gym.Adress}" Width="120"/>
                             <GridViewColumn Header="Номер сотрудника" DisplayMemberBinding="{Binding EmpId}" Width="70"/>
                             <GridViewColumn Header="Id Клуба" DisplayMemberBinding="{Binding ClubId}" Width="70"/>

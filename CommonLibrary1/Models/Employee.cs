@@ -11,7 +11,7 @@ namespace CommonLibrary1.Models
         public int EmpId { get; set; }
         public int ClubId { get; set; }
         public int ScheduleId { get; set; }
-        public CareerPost CareerPost { get; set; }
+        public CareerPost PostName { get; set; }
         public Gym Gym { get; set; }
 
     }

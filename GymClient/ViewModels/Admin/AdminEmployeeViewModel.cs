@@ -38,12 +38,12 @@ namespace GymClient.ViewModels.Admin
                 Phone = SelectedEmployee?.Phone;
                 Email = SelectedEmployee?.Email;
                 EmpId = SelectedEmployee?.EmpId;
-                PostId = SelectedEmployee.CareerPost.Id;
+                PostId = SelectedEmployee.PostName.Id;
                 ClubId = SelectedEmployee?.ClubId;
                 ScheduleId = SelectedEmployee?.ScheduleId;
                 if(SelectedEmployee != null)
                 {
-                    SelectedCareerPost = CareerPosts.Where(x => x.Id == SelectedEmployee.CareerPost.Id).FirstOrDefault();
+                    SelectedPostName = PostNames.Where(x => x.Id == SelectedEmployee.PostName.Id).FirstOrDefault();
                 }
 
             }
@@ -110,17 +110,17 @@ namespace GymClient.ViewModels.Admin
         }
        
 
-        private CareerPost selectedCareerPost;
-        public CareerPost SelectedCareerPost
+        private CareerPost selectedPostName;
+        public CareerPost SelectedPostName
         {
-            get => selectedCareerPost;
-            set => SetProperty(ref selectedCareerPost, value);
+            get => selectedPostName;
+            set => SetProperty(ref selectedPostName, value);
         }
-        private List<CareerPost> careerPosts;
-        public List<CareerPost> CareerPosts
+        private List<CareerPost> postNames;
+        public List<CareerPost> PostNames
         {
-            get => careerPosts;
-            set => SetProperty(ref careerPosts, value);
+            get => postNames;
+            set => SetProperty(ref postNames, value);
         }
         private ObservableCollection<Gym> selectedGyms;
         public ObservableCollection<Gym> SelectedGyms
@@ -148,7 +148,7 @@ namespace GymClient.ViewModels.Admin
             DeleteCommand = new Command(Delete, () => SelectedEmployee != null);
             AddCommand = new Command(Add, () => SendCondition());
             ChangeCommand = new Command(Update, () => SendCondition());
-            CareerPosts = Handbook.CareerPosts.ToList();
+            PostNames = Handbook.PostNames.ToList();
         }
         private void Refresh()
         {
@@ -164,7 +164,7 @@ namespace GymClient.ViewModels.Admin
         private void Add()
         {
             Employee employee = new Employee() {Id = Id.Value, FirstName = FirstName, LastName = LastName, Birthday = BirthDay, Phone = Phone, 
-                Email = Email, EmpId = EmpId.Value, ClubId = ClubId.Value, CareerPost = SelectedCareerPost, ScheduleId=ScheduleId.Value};
+                Email = Email, EmpId = EmpId.Value, ClubId = ClubId.Value, PostName = SelectedPostName, ScheduleId=ScheduleId.Value};
             ResponseServer response = admin.AddEmployee(employee);
             NotificationHelper.Instance.ShowResponse(response);
             Refresh();
@@ -181,7 +181,7 @@ namespace GymClient.ViewModels.Admin
                 Email = Email,
                 EmpId = EmpId.Value,
                 ClubId = ClubId.Value,
-                CareerPost = SelectedCareerPost,
+                PostName = SelectedPostName,
                 ScheduleId = ScheduleId.Value
             };
             ResponseServer response = admin.ChangeEmployee(employee);
@@ -190,7 +190,7 @@ namespace GymClient.ViewModels.Admin
         }
         private bool SendCondition()
         {
-            return SelectedEmployee != null && FirstName != null && LastName != null && BirthDay != null && Phone != null && Email != null && SelectedCareerPost != null;
+            return SelectedEmployee != null && FirstName != null && LastName != null && BirthDay != null && Phone != null && Email != null && SelectedPostName != null;
         }
     }
 }
