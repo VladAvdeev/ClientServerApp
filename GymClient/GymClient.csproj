@@ -128,6 +128,7 @@
     <Compile Include="Services\WindowService.cs" />
     <Compile Include="ViewModels\Admin\AdminClientViewModel.cs" />
     <Compile Include="ViewModels\Admin\AdminEmployeeViewModel.cs" />
+    <Compile Include="ViewModels\Admin\AdminGymViewModel.cs" />
     <Compile Include="ViewModels\Admin\AdminWindowViewModel.cs" />
     <Compile Include="ViewModels\ClientViewModel.cs" />
     <Compile Include="ViewModels\Club2ViewModel.cs" />
@@ -139,6 +140,9 @@
     <Compile Include="ViewModels\ScheduleViewModel.cs" />
     <Compile Include="Views\Admin\AdminClientsControl.xaml.cs">
       <DependentUpon>AdminClientsControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\AdminGymsControl.xaml.cs">
+      <DependentUpon>AdminGymsControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Admin\AdminWindowView.xaml.cs">
       <DependentUpon>AdminWindowView.xaml</DependentUpon>
@@ -179,6 +183,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Admin\AdminClientsControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\AdminGymsControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

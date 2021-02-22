@@ -21,10 +21,10 @@ namespace GymClient.RestClients
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
             client.RemoteCertificateValidationCallback = (sender, certificate, chain, sslPolicyErrors) => true;
         }
-        public List<Gym> GetGyms()
+        public IEnumerable<Gym> GetGyms()
         {
-            var request = new RestRequest("api/clubes", Method.GET);
-            return client.Execute<List<Gym>>(request).Data;
+            var request = new RestRequest("Api/Clubes", Method.GET);
+            return client.Execute<IEnumerable<Gym>>(request).Data;
         }
         public ResponseServer AddGym(Gym gym)
         {

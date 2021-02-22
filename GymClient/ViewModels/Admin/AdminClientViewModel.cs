@@ -13,7 +13,7 @@ using System.Windows.Input;
 
 namespace GymClient.ViewModels.Admin
 {
-    public class AdminClientViewModel : NotifyPropertyChanged, IPageViewModel
+    public class AdminClientViewModel : NotifyPropertyChanged
     {
         ClientsServer adminClient;
         private ObservableCollection<Client> clients;
