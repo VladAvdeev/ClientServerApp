@@ -14,9 +14,9 @@ namespace GymClientServer.ViewDB
         public string Phone { get; set; }
         public string Email { get; set; }
         public int ClientId { get; set; }
-        public int GymTickettId { get; set; }
+        public int GymTicketId { get; set; }
         public int ClubClientId { get; set; }
-        public string TicketName { get; set; }
+        public string TicketType { get; set; }
         public string TicketUseful { get; set; }
     }
 }

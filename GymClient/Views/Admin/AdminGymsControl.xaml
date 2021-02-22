@@ -89,7 +89,7 @@
                     <ColumnDefinition Width="336*"/>
                 </Grid.ColumnDefinitions>
                 <ListView x:Name="TableEmp" Grid.Column ="0" ItemsSource="{Binding Gyms, Mode=OneWay}" 
-                          SelectedItem="{}"
+                          SelectedItem="{Binding SelectedGym}"
                           Grid.ColumnSpan="2" Margin="0,0,0,17"
                           ScrollViewer.CanContentScroll="True"
    

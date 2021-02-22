@@ -126,16 +126,19 @@
                           >
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id}" Width="70"/>
+                            <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id}" Width="60"/>
                             <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding FirstName}" Width="100"/>
                             <GridViewColumn Header="Фамилия" DisplayMemberBinding="{Binding LastName}" Width="100"/>
-                            <GridViewColumn Header="Дата рождения" DisplayMemberBinding="{Binding Birthday}" Width="100"/>
-                            <GridViewColumn Header="Номер телефона" DisplayMemberBinding="{Binding Phone}" Width="160"/>
-                            <GridViewColumn Header="Почта" DisplayMemberBinding="{Binding Email}" Width="160"/>
+                            <GridViewColumn Header="Дата рождения" DisplayMemberBinding="{Binding Birthday}" Width="120"/>
+                            <GridViewColumn Header="Номер телефона" DisplayMemberBinding="{Binding Phone}" Width="170"/>
+                            <GridViewColumn Header="Почта" DisplayMemberBinding="{Binding Email}" Width="170"/>
+                            <GridViewColumn Header="Номер абонемента" DisplayMemberBinding="{Binding GymTicketId}" Width="90"/>
+                            <GridViewColumn Header="Номер клуба" DisplayMemberBinding="{Binding ClubClientId}" Width="90"/>
+                            <GridViewColumn Header="Статус" DisplayMemberBinding="{Binding TicketType}" Width="150"/>
+                            <GridViewColumn Header="Срок действия" DisplayMemberBinding="{Binding TicketUseful}" Width="150"/>
                             <!--<GridViewColumn Header="Должность" DisplayMemberBinding="{Binding CareerPost.PostName}" Width="150"/>
                             <GridViewColumn Header="Клуб" DisplayMemberBinding="{Binding Gym.Adress}" Width="120"/>-->
                             <!--<GridViewColumn Header="Номер сотрудника" DisplayMemberBinding="{Binding EmpId}" Width="70"/>
-                            <GridViewColumn Header="Id Клуба" DisplayMemberBinding="{Binding ClubId}" Width="70"/>
                             <GridViewColumn Header="Расписание" DisplayMemberBinding="{Binding ScheduleId}" Width="70"/>-->
                         </GridView>
                     </ListView.View>

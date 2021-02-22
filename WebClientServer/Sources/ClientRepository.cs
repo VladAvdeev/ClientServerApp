@@ -14,7 +14,7 @@ namespace GymClientServer.Sources
     public class ClientRepository : IRepository<Client>
     {
         private string tableName = "Clients";
-        private string viewTable = "ClientsWithTicket";
+        private string viewTable = "ClientWithTicket";
         private string connectionString;
         public ClientRepository(IConfiguration configuration)
         {
@@ -42,13 +42,13 @@ namespace GymClientServer.Sources
                         Id = c.Id,
                         FirstName = c.FirstName,
                         LastName = c.LastName,
-                        Birthday = c.Birthday,
+                        Birthday = c.Birthday.Date,
                         Phone = c.Phone,
                         Email = c.Email,
                         ClientId = c.ClientId,
-                        GymTickettId = c.GymTickettId,
+                        GymTickettId = c.GymTicketId,
                         ClubClientId = c.ClubClientId,
-                        TicketName = c.TicketName,
+                        TicketType = c.TicketType,
                         TicketUseful = c.TicketUseful
                     };
                     clients.Add(client);

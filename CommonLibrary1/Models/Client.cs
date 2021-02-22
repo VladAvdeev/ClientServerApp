@@ -11,7 +11,7 @@ namespace CommonLibrary.Models
         public int ClientId { get; set; }
         public int GymTickettId { get; set; }
         public int ClubClientId { get; set; }
-        public string TicketName { get; set; }
+        public string TicketType { get; set; }
         public string TicketUseful { get; set; }
         //public DateTime GymTicketBestBefore { get; set; }
     }

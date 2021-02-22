@@ -38,6 +38,8 @@ namespace GymClient.ViewModels.Admin
                 ClientId = SelectedClient?.ClientId;
                 GymTicketId = SelectedClient?.GymTickettId;
                 ClubClientId = SelectedClient?.ClubClientId;
+                TycketType = SelectedClient?.TicketType;
+                TicketUseful = SelectedClient?.TicketUseful;
             }
             
         }
@@ -95,11 +97,11 @@ namespace GymClient.ViewModels.Admin
             get => clubClientId;
             set => SetProperty(ref clubClientId, value);
         }
-        private string ticketName;
-        public string TicketName
+        private string ticketType;
+        public string TycketType
         {
-            get => ticketName;
-            set => SetProperty(ref ticketName, value);
+            get => ticketType;
+            set => SetProperty(ref ticketType, value);
         }
         private string ticketUseful;
         public string TicketUseful
@@ -136,6 +138,8 @@ namespace GymClient.ViewModels.Admin
                 Phone = Phone,
                 Email = Email,
                 ClientId = ClientId.Value,
+                TicketType = TycketType,
+                TicketUseful = TicketUseful,
                 GymTickettId = GymTicketId.Value,
                 ClubClientId = ClubClientId.Value
             };
@@ -154,6 +158,8 @@ namespace GymClient.ViewModels.Admin
                 Phone = Phone,
                 Email = Email,
                 ClientId = ClientId.Value,
+                TicketType = TycketType,
+                TicketUseful = TicketUseful,
                 GymTickettId = GymTicketId.Value,
                 ClubClientId = ClubClientId.Value
             };
