@@ -25,10 +25,6 @@ namespace GymClient.Views.Admin
             InitializeComponent();
         }
 
-        private void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            ListView list = sender as ListView;
-            list.ScrollIntoView(list.SelectedItem);
-        }
+
     }
 }

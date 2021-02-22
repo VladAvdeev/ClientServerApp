@@ -121,7 +121,6 @@
                 </Grid.ColumnDefinitions>
                 <ListView x:Name="TableEmp" Grid.Column ="0" ItemsSource="{Binding Employees, Mode=OneWay}" 
                           SelectedItem="{Binding SelectedEmployee}"
-                          SelectionChanged="OnSelectionChanged"
                           Grid.ColumnSpan="2" Margin="0,0,0,17"
                           ScrollViewer.CanContentScroll="True"
    

@@ -21,17 +21,7 @@ namespace GymClient.ViewModels.Admin
     {
         AdminServer admin;
         #region Employee
-        private string searchPattern;
-        public string SearchPattern
-        {
-            get => searchPattern;
-            set
-            {
-                SetProperty(ref searchPattern, value);
-                SelectedEmployee = Employees.FirstOrDefault(s => s.ToString().StartsWith(SearchPattern));
-            }
-                
-        }
+        
         private ObservableCollection<Employee> employees;
         public ObservableCollection<Employee> Employees
         {
@@ -202,12 +192,7 @@ namespace GymClient.ViewModels.Admin
             NotificationHelper.Instance.ShowResponse(response);
             Refresh();
         }
-        protected void Set<T>(ref T field, T value, [CallerMemberName] string propertyName = "")
-        {
-            field = value;
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-        public event PropertyChangedEventHandler PropertyChanged;
+
         private bool SendCondition()
         {
             return SelectedEmployee != null && FirstName != null && LastName != null && BirthDay != null && Phone != null && Email != null && SelectedPostName != null;
