@@ -45,7 +45,7 @@ namespace GymClientServer.Sources
                         Birthday = emp.Birthday,
                         Phone = emp.Phone,
                         Email = emp.Email,
-                        CareerPost = new CareerPost() {Id = emp.EmpId, PostName = emp.PostName },
+                        CareerPost = new CareerPost() {Id = emp.PostId, PostName = emp.PostName },
                         Gym = new Gym() { Adress = emp.Adress },
                         EmpId = emp.EmpId,
                         ClubId = emp.ClubId,

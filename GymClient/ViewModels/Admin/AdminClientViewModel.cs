@@ -95,6 +95,18 @@ namespace GymClient.ViewModels.Admin
             get => clubClientId;
             set => SetProperty(ref clubClientId, value);
         }
+        private string ticketName;
+        public string TicketName
+        {
+            get => ticketName;
+            set => SetProperty(ref ticketName, value);
+        }
+        private string ticketUseful;
+        public string TicketUseful
+        {
+            get => ticketUseful;
+            set => SetProperty(ref ticketUseful, value);
+        }
         public ICommand RefreshCommand { get; }
         public ICommand DeleteCommand { get; }
         public ICommand AddCommand { get; }

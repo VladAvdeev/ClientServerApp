@@ -84,6 +84,12 @@ namespace GymClient.ViewModels.Admin
             get => email;
             set => SetProperty(ref email, value);
         }
+        private int? postId;
+        public int? PostId
+        {
+            get => postId;
+            set => SetProperty(ref postId, value);
+        }
         public int? empId;
         public int? EmpId
         {
@@ -102,12 +108,7 @@ namespace GymClient.ViewModels.Admin
             get => scheduleId;
             set => SetProperty(ref scheduleId, value);
         }
-        private int? postId;
-        public int? PostId
-        {
-            get => postId;
-            set => SetProperty(ref postId, value);
-        }
+       
 
         private CareerPost selectedCareerPost;
         public CareerPost SelectedCareerPost

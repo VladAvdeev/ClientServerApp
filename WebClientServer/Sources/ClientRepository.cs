@@ -1,5 +1,6 @@
 ﻿using CommonLibrary.Models;
 using Dapper;
+using GymClientServer.ViewDB;
 using Microsoft.Extensions.Configuration;
 using Npgsql;
 using System;
@@ -13,6 +14,7 @@ namespace GymClientServer.Sources
     public class ClientRepository : IRepository<Client>
     {
         private string tableName = "Clients";
+        private string viewTable = "ClientsWithTicket";
         private string connectionString;
         public ClientRepository(IConfiguration configuration)
         {
@@ -29,8 +31,31 @@ namespace GymClientServer.Sources
         {
             using(IDbConnection dbConnection = Connection)
             {
+                List<Client> clients = new List<Client>();
+                List<ClientsView> clientsViews;
                 dbConnection.Open();
-                return dbConnection.Query<Client>($"SELECT * FROM {tableName}");
+                clientsViews = dbConnection.Query<ClientsView>($"SELECT * FROM {viewTable}").ToList();
+                foreach(var c in clientsViews)
+                {
+                    Client client = new Client()
+                    {
+                        Id = c.Id,
+                        FirstName = c.FirstName,
+                        LastName = c.LastName,
+                        Birthday = c.Birthday,
+                        Phone = c.Phone,
+                        Email = c.Email,
+                        ClientId = c.ClientId,
+                        GymTickettId = c.GymTickettId,
+                        ClubClientId = c.ClubClientId,
+                        TicketName = c.TicketName,
+                        TicketUseful = c.TicketUseful
+                    };
+                    clients.Add(client);
+
+                }
+                return clients;
+                    //dbConnection.Query<Client>($"SELECT * FROM {tableName}");
             }
         }
         public Client FindById(int id)
