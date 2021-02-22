@@ -18,7 +18,7 @@ namespace GymClient.ClientsREST
         }
         public List<CareerPost> GetCareerPosts()
         {
-            var request = new RestRequest("api/posts", Method.GET);
+            var request = new RestRequest("Api/Posts", Method.GET);
             return client.Execute<List<CareerPost>>(request).Data;
         }
     }

@@ -18,6 +18,7 @@ namespace GymClient.ClientsREST
         public RestClient CreateClient() 
         {
             RestClient client = new RestClient(adress);
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
             client.RemoteCertificateValidationCallback = (sender, certificate, chain, sslPolicyErrors) => true;
             return client;
         }

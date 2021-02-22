@@ -1,9 +1,9 @@
-﻿<UserControl x:Class="GymClient.Views.Admin.AdminControl"
+﻿<UserControl x:Class="GymClient.Views.Admin.AdminClientsControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:GymClient.Views"
+             xmlns:local="clr-namespace:GymClient.Views.Admin"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
@@ -29,8 +29,9 @@
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
                             <RowDefinition Height="40" />
-                            
+
                             <RowDefinition />
                         </Grid.RowDefinitions>
 
@@ -40,47 +41,52 @@
                                  VerticalContentAlignment="Center" Height="28" Margin="0 0 10 0" />
 
                         <TextBlock Margin="10" Grid.Row="1" Grid.Column="0" Text="Имя:" FontSize="12" HorizontalAlignment="Left"/>
-                            <TextBox x:Name="tbxFirstName" Grid.Row="1" Grid.Column="1" 
+                        <TextBox x:Name="tbxFirstNameClient" Grid.Row="1" Grid.Column="1" 
                                      Text="{Binding FirstName, UpdateSourceTrigger=PropertyChanged}" 
                                      VerticalContentAlignment="Center" Height="28" Margin="0 0 10 0" />
 
                         <TextBlock Margin="10" Grid.Row="2" Grid.Column="0" Text="Фамилия:" FontSize="12" HorizontalAlignment="Left"/>
-                        <TextBox x:Name="tbxLastName" Grid.Row="2" Grid.Column="1" 
+                        <TextBox x:Name="tbxLastNameClient" Grid.Row="2" Grid.Column="1" 
                                  Text="{Binding LastName, UpdateSourceTrigger=PropertyChanged}"
                                  VerticalContentAlignment="Center" Height="28" Margin="0 0 10 0" />
+                        
+                        <TextBlock  Margin="10" Text="дата рождения" FontSize="12" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left"/>
+                        <TextBox x:Name="tbxBirthdayClient" Grid.Row="3" Grid.Column="1" FontSize="20" Height="28" 
+                                 VerticalAlignment="Center" Margin="0 0 10 0"
+                                 Text="{Binding Birthday, UpdateSourceTrigger=PropertyChanged}"/>
 
-                        <TextBlock  Margin="10" Text="Телефон" FontSize="12" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left"/>
-                        <TextBox x:Name="tbxPhone" Grid.Row="3" Grid.Column="1" FontSize="20" Height="28" 
+                        <TextBlock  Margin="10" Text="Телефон" FontSize="12" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Left"/>
+                        <TextBox x:Name="tbxPhoneClient" Grid.Row="4" Grid.Column="1" FontSize="20" Height="28" 
                                  VerticalAlignment="Center" Margin="0 0 10 0"
                                  Text="{Binding Phone, UpdateSourceTrigger=PropertyChanged}"/>
 
-                        <TextBlock Margin="10" Text="Почта:" FontSize="12" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Left"/>
-                        <TextBox x:Name="tbxEmail" Grid.Row="4" Grid.Column="1" FontSize="20" Height="25" 
+                        <TextBlock Margin="10" Text="Почта:" FontSize="12" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Left"/>
+                        <TextBox x:Name="tbxEmail" Grid.Row="5" Grid.Column="1" FontSize="20" Height="25" 
                                  VerticalAlignment="Center" Margin="0 10 10 0" 
                                  Text="{Binding Email,UpdateSourceTrigger=PropertyChanged}"/>
 
-                        <TextBlock Margin="10" Text="Должность:" FontSize="12" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Left"/>
-                        
-                        <ComboBox Grid.Row="5" Grid.Column="1"
+                        <!--<TextBlock Margin="10" Text="Должность:" FontSize="12" Grid.Row="6" Grid.Column="0" HorizontalAlignment="Left"/>-->
+
+                        <!--<ComboBox Grid.Row="6" Grid.Column="1"
                                       ItemsSource="{Binding CareerPosts, Mode=OneWay}"
                                       SelectedItem="{Binding SelectedCareerPost}"
                                       DisplayMemberPath="CareerPost" SelectedValuePath="Id" Height="25" Width="180"
                                   Margin="0 10 10 0"
-                                      />
-                        <TextBlock Margin="10" Text="Клуб:" FontSize="12" Grid.Row="6" Grid.Column="0" HorizontalAlignment="Left"/>
-                        <TextBox x:Name="tbxClubId" Grid.Row="6" Grid.Column="1" FontSize="20" Height="25" 
+                                      />-->
+                        <TextBlock Margin="10" Text="Клуб:" FontSize="12" Grid.Row="7" Grid.Column="0" HorizontalAlignment="Left"/>
+                        <TextBox x:Name="tbxClubId" Grid.Row="7" Grid.Column="1" FontSize="20" Height="25" 
                                  VerticalAlignment="Center" Margin="0 10 10 0" 
                                  Text="{Binding ClubId,UpdateSourceTrigger=PropertyChanged}"/>
-                        
-                        <TextBlock Margin="10" Text="Номер:" FontSize="12" Grid.Row="7" Grid.Column="0" HorizontalAlignment="Left"/>
-                        <TextBox x:Name="tbxempId" Grid.Row="7" Grid.Column="1" FontSize="20" Height="25" 
+
+                        <TextBlock Margin="10" Text="Номер:" FontSize="12" Grid.Row="8" Grid.Column="0" HorizontalAlignment="Left"/>
+                        <TextBox x:Name="tbxempId" Grid.Row="8" Grid.Column="1" FontSize="20" Height="25" 
                                  VerticalAlignment="Center" Margin="0 10 10 0" 
                                  Text="{Binding EmpId,UpdateSourceTrigger=PropertyChanged}"/>
 
-                        <TextBlock Margin="10" Text="Расписание:" FontSize="12" Grid.Row="8" Grid.Column="0" HorizontalAlignment="Left"/>
-                        <TextBox x:Name="tbxscheduleId" Grid.Row="8" Grid.Column="1" FontSize="20" Height="25" 
+                        <!--<TextBlock Margin="10" Text="Расписание:" FontSize="12" Grid.Row="9" Grid.Column="0" HorizontalAlignment="Left"/>
+                        <TextBox x:Name="tbxscheduleId" Grid.Row="9" Grid.Column="1" FontSize="20" Height="25" 
                                  VerticalAlignment="Center" Margin="0 10 10 0" 
-                                 Text="{Binding ScheduleId,UpdateSourceTrigger=PropertyChanged}"/>
+                                 Text="{Binding ScheduleId,UpdateSourceTrigger=PropertyChanged}"/>-->
 
 
 
@@ -112,8 +118,8 @@
                     <ColumnDefinition Width="223*"/>
                     <ColumnDefinition Width="336*"/>
                 </Grid.ColumnDefinitions>
-                <ListView x:Name="TableEmp" Grid.Column ="0" ItemsSource="{Binding Employees, Mode=OneWay}" 
-                          SelectedItem="{Binding SelectedEmployee}"
+                <ListView x:Name="TableEmp" Grid.Column ="0" ItemsSource="{Binding Clients, Mode=OneWay}" 
+                          SelectedItem="{Binding SelectedClient}"
                           Grid.ColumnSpan="2" Margin="0,0,0,17"
                           ScrollViewer.CanContentScroll="True"
    
@@ -123,13 +129,14 @@
                             <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id}" Width="70"/>
                             <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding FirstName}" Width="100"/>
                             <GridViewColumn Header="Фамилия" DisplayMemberBinding="{Binding LastName}" Width="100"/>
-                            <GridViewColumn Header="Почта" DisplayMemberBinding="{Binding Email}" Width="160"/>
+                            <GridViewColumn Header="Дата рождения" DisplayMemberBinding="{Binding Birthday}" Width="100"/>
                             <GridViewColumn Header="Номер телефона" DisplayMemberBinding="{Binding Phone}" Width="160"/>
-                            <GridViewColumn Header="Должность" DisplayMemberBinding="{Binding CareerPost.PostName}" Width="150"/>
-                            <GridViewColumn Header="Клуб" DisplayMemberBinding="{Binding Gym.Adress}" Width="120"/>
-                            <GridViewColumn Header="Номер сотрудника" DisplayMemberBinding="{Binding EmpId}" Width="70"/>
+                            <GridViewColumn Header="Почта" DisplayMemberBinding="{Binding Email}" Width="160"/>
+                            <!--<GridViewColumn Header="Должность" DisplayMemberBinding="{Binding CareerPost.PostName}" Width="150"/>
+                            <GridViewColumn Header="Клуб" DisplayMemberBinding="{Binding Gym.Adress}" Width="120"/>-->
+                            <!--<GridViewColumn Header="Номер сотрудника" DisplayMemberBinding="{Binding EmpId}" Width="70"/>
                             <GridViewColumn Header="Id Клуба" DisplayMemberBinding="{Binding ClubId}" Width="70"/>
-                            <GridViewColumn Header="Расписание" DisplayMemberBinding="{Binding ScheduleId}" Width="70"/>
+                            <GridViewColumn Header="Расписание" DisplayMemberBinding="{Binding ScheduleId}" Width="70"/>-->
                         </GridView>
                     </ListView.View>
                 </ListView>

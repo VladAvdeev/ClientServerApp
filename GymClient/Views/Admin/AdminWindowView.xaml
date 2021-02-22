@@ -11,6 +11,10 @@
             <TabItem Header="Сотрудники">
                 <local:AdminControl DataContext="{Binding AdminEmployeeViewModel}"/>
             </TabItem>
+            <TabItem Header="Клиенты">
+                <local:AdminClientsControl DataContext="{Binding AdminClientViewModel}"/>
+            </TabItem>
+            
         </TabControl>
     </Grid>
 </Window>

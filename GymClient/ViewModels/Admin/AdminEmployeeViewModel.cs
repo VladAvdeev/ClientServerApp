@@ -177,7 +177,7 @@ namespace GymClient.ViewModels.Admin
         }
         private bool SendCondition()
         {
-            return SelectedEmployee != null && FirstName != null && LastName != null && BirthDay != null && Phone != null && Email != null;
+            return SelectedEmployee != null && FirstName != null && LastName != null && BirthDay != null && Phone != null && Email != null && SelectedCareerPost != null;
         }
     }
 }
