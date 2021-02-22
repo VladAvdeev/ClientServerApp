@@ -170,7 +170,19 @@ namespace GymClient.ViewModels.Admin
         }
         private void Update()
         {
-            Employee employee = new Employee() { FirstName = FirstName };
+            Employee employee = new Employee() 
+            {
+                Id = Id.Value,
+                FirstName = FirstName,
+                LastName = LastName,
+                Birthday = BirthDay,
+                Phone = Phone,
+                Email = Email,
+                EmpId = EmpId.Value,
+                ClubId = ClubId.Value,
+                CareerPost = SelectedCareerPost,
+                ScheduleId = ScheduleId.Value
+            };
             ResponseServer response = admin.ChangeEmployee(employee);
             NotificationHelper.Instance.ShowResponse(response);
             Refresh();

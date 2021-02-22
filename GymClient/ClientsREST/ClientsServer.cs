@@ -23,7 +23,7 @@ namespace GymClient.ClientsREST
         }
         public List<Client> GetClients()
         {
-            var request = new RestRequest("api/clients", Method.GET);
+            var request = new RestRequest("Api/Clients", Method.GET);
             return client.Execute<List<Client>>(request).Data;
         }
         public ResponseServer AddClient(Client newClient)

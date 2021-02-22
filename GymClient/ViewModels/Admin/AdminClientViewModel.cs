@@ -1,6 +1,8 @@
 ﻿using CommonLibrary.Models;
+using CommonLibrary1;
 using GymClient.ClientsREST;
 using GymClient.Core;
+using GymClient.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -30,12 +32,12 @@ namespace GymClient.ViewModels.Admin
                 Id = SelectedClient?.Id;
                 FirstName = SelectedClient?.FirstName;
                 LastName = SelectedClient?.LastName;
-                Birthday = SelectedClient.Birthday;
+                Birthday = SelectedClient?.Birthday;
                 Phone = selectedClient?.Phone;
                 Email = SelectedClient?.Email;
-                ClientId = SelectedClient.ClientId;
-                GymTicketId = SelectedClient.GymTickettId;
-                ClubClientId = SelectedClient.ClubClientId;
+                ClientId = SelectedClient?.ClientId;
+                GymTicketId = SelectedClient?.GymTickettId;
+                ClubClientId = SelectedClient?.ClubClientId;
             }
             
         }
@@ -57,8 +59,8 @@ namespace GymClient.ViewModels.Admin
             get => lastName;
             set => SetProperty(ref lastName, value);
         }
-        private DateTime birthday;
-        public DateTime Birthday
+        private DateTime? birthday;
+        public DateTime? Birthday
         {
             get => birthday;
             set => SetProperty(ref birthday, value);
@@ -75,20 +77,20 @@ namespace GymClient.ViewModels.Admin
             get => email;
             set => SetProperty(ref email, value);
         }
-        private int clientId;
-        public int ClientId 
+        private int? clientId;
+        public int? ClientId 
         { 
             get => clientId;
             set => SetProperty(ref clientId, value);
         }
-        private int gymTicketId;
-        public int GymTicketId
+        private int? gymTicketId;
+        public int? GymTicketId
         {
             get => gymTicketId;
             set => SetProperty(ref gymTicketId, value);
         }
-        private int clubClientId;
-        public int ClubClientId
+        private int? clubClientId;
+        public int? ClubClientId
         {
             get => clubClientId;
             set => SetProperty(ref clubClientId, value);
@@ -102,10 +104,61 @@ namespace GymClient.ViewModels.Admin
         {
             adminClient = new ClientsServer();
             RefreshCommand = new Command(Refresh);
+            AddCommand = new Command(Add, () => SendCondition());
+            ChangeCommand = new Command(Update, () => SendCondition());
+            DeleteCommand = new Command(Delete, () => SelectedClient != null);
+
         }
         private void Refresh()
         {
             Clients = new ObservableCollection<Client>(adminClient.GetClients());
+        }
+        private void Add()
+        {
+            Client newClient = new Client()
+            {
+                Id = Id.Value,
+                FirstName = FirstName,
+                LastName = LastName,
+                Birthday = Birthday.Value,
+                Phone = Phone,
+                Email = Email,
+                ClientId = ClientId.Value,
+                GymTickettId = GymTicketId.Value,
+                ClubClientId = ClubClientId.Value
+            };
+            ResponseServer response = adminClient.AddClient(newClient);
+            NotificationHelper.Instance.ShowResponse(response);
+            Refresh();
+        }
+        private void Update()
+        {
+            Client oldClient = new Client()
+            {
+                Id = Id.Value,
+                FirstName = FirstName,
+                LastName = LastName,
+                Birthday = Birthday.Value,
+                Phone = Phone,
+                Email = Email,
+                ClientId = ClientId.Value,
+                GymTickettId = GymTicketId.Value,
+                ClubClientId = ClubClientId.Value
+            };
+            ResponseServer response = adminClient.UpdateClient(oldClient);
+            NotificationHelper.Instance.ShowResponse(response);
+            Refresh();
+        }
+        private void Delete()
+        {
+            ResponseServer response = adminClient.DeleteClient(SelectedClient.Id);
+            SelectedClient = null;
+            NotificationHelper.Instance.ShowResponse(response);
+            Refresh();
+        }
+        private bool SendCondition()
+        {
+            return SelectedClient != null && FirstName != null && LastName != null && Phone != null;
         }
     }
 }
