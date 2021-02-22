@@ -34,7 +34,7 @@ namespace GymClientServer.Sources
                 List<Employee> employeesList = new List<Employee>();
                 List<EmployeeView> employeeViews;
                 dbConnection.Open();
-                employeeViews = dbConnection.Query<EmployeeView>("SELECT * FROM EmployeePost").ToList();
+                employeeViews = dbConnection.Query<EmployeeView>("SELECT * FROM EmployeeWithPostClub").ToList();
                 foreach(var emp in employeeViews)
                 {
                     Employee employee = new Employee()

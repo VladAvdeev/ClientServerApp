@@ -14,7 +14,7 @@ namespace GymClientServer.Sources
     public class ClientRepository : IRepository<Client>
     {
         private string tableName = "Clients";
-        private string viewTable = "ClientWithTicket";
+        private string viewTable = "ClientWithTicketList";
         private string connectionString;
         public ClientRepository(IConfiguration configuration)
         {
@@ -72,7 +72,7 @@ namespace GymClientServer.Sources
             {
                 dbConnection.Open();
                 dbConnection.Execute($"INSERT INTO {tableName}(FirstName, LastName, BirthDay, Phone, Email, ClientId, GymTicketId, ClubClientId " +
-                    $"TicketName, TicketUseful) " +
+                    //$"TicketName, TicketUseful) " +
                     $"VALUES(@FirstName, @LastName, @BirthDay, @Phone, @Email, @ClientId, @GymTicketId, @ClubClientId" , client);
                 dbConnection.Close();
             }

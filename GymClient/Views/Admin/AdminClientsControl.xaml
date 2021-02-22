@@ -50,7 +50,7 @@
                                  Text="{Binding LastName, UpdateSourceTrigger=PropertyChanged}"
                                  VerticalContentAlignment="Center" Height="28" Margin="0 0 10 0" />
                         
-                        <TextBlock  Margin="10" Text="дата рождения" FontSize="12" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left"/>
+                        <TextBlock  Margin="10" Text="Дата рождения:" FontSize="12" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left"/>
                         <TextBox x:Name="tbxBirthdayClient" Grid.Row="3" Grid.Column="1" FontSize="20" Height="28" 
                                  VerticalAlignment="Center" Margin="0 0 10 0"
                                  Text="{Binding Birthday, UpdateSourceTrigger=PropertyChanged}"/>
@@ -61,7 +61,7 @@
                                  Text="{Binding Phone, UpdateSourceTrigger=PropertyChanged}"/>
 
                         <TextBlock Margin="10" Text="Почта:" FontSize="12" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Left"/>
-                        <TextBox x:Name="tbxEmail" Grid.Row="5" Grid.Column="1" FontSize="20" Height="25" 
+                        <TextBox x:Name="tbxEmail" Grid.Row="5" Grid.Column="1" FontSize="20" Height="28" 
                                  VerticalAlignment="Center" Margin="0 10 10 0" 
                                  Text="{Binding Email,UpdateSourceTrigger=PropertyChanged}"/>
 
@@ -129,13 +129,14 @@
                             <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id}" Width="60"/>
                             <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding FirstName}" Width="100"/>
                             <GridViewColumn Header="Фамилия" DisplayMemberBinding="{Binding LastName}" Width="100"/>
-                            <GridViewColumn Header="Дата рождения" DisplayMemberBinding="{Binding Birthday}" Width="120"/>
+                            <GridViewColumn Header="Дата рождения" DisplayMemberBinding="{Binding Birthday}" Width="100"/>
                             <GridViewColumn Header="Номер телефона" DisplayMemberBinding="{Binding Phone}" Width="170"/>
                             <GridViewColumn Header="Почта" DisplayMemberBinding="{Binding Email}" Width="170"/>
-                            <GridViewColumn Header="Номер абонемента" DisplayMemberBinding="{Binding GymTicketId}" Width="90"/>
-                            <GridViewColumn Header="Номер клуба" DisplayMemberBinding="{Binding ClubClientId}" Width="90"/>
+                            <GridViewColumn Header="Номер абонемента" DisplayMemberBinding="{Binding GymTicketId}" Width="100"/>
+                            <GridViewColumn Header="Номер клуба" DisplayMemberBinding="{Binding ClubClientId}" Width="100"/>
                             <GridViewColumn Header="Статус" DisplayMemberBinding="{Binding TicketType}" Width="150"/>
                             <GridViewColumn Header="Срок действия" DisplayMemberBinding="{Binding TicketUseful}" Width="150"/>
+                            <GridViewColumn Header="Номер клиента" DisplayMemberBinding="{Binding ClientId}" Width="100"/>
                             <!--<GridViewColumn Header="Должность" DisplayMemberBinding="{Binding CareerPost.PostName}" Width="150"/>
                             <GridViewColumn Header="Клуб" DisplayMemberBinding="{Binding Gym.Adress}" Width="120"/>-->
                             <!--<GridViewColumn Header="Номер сотрудника" DisplayMemberBinding="{Binding EmpId}" Width="70"/>

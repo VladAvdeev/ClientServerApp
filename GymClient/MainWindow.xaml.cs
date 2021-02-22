@@ -26,6 +26,8 @@ namespace GymClient
         {
             InitializeComponent();
             DataContext = new MainWindowViewModel();
+
         }
+       
     }
 }

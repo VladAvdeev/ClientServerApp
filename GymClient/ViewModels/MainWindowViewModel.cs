@@ -27,7 +27,6 @@ namespace GymClient.ViewModels
             windowService = NinjectDI.Instanse.Get<IWindowService>();
 
             InitPages();
-            Handbook.Load();
             CurrentPageViewModel = PageViewModels[0];
             ChangePageCommand = new Command((x) => ChangeViewModel(Convert.ToInt32(x)));
             OpenAdminWindowCommand = new Command(OpenAdminWindow);
