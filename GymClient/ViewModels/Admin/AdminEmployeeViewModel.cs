@@ -41,7 +41,7 @@ namespace GymClient.ViewModels.Admin
                 Phone = SelectedEmployee?.Phone;
                 Email = SelectedEmployee?.Email;
                 EmpId = SelectedEmployee?.EmpId;
-                PostId = SelectedEmployee.PostName.Id;
+                PostId = SelectedEmployee?.PostName.Id;
                 ClubId = SelectedEmployee?.ClubId;
                 ScheduleId = SelectedEmployee?.ScheduleId;
                 if(SelectedEmployee != null)

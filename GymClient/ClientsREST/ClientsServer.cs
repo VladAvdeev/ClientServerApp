@@ -28,21 +28,21 @@ namespace GymClient.ClientsREST
         }
         public ResponseServer AddClient(Client newClient)
         {
-            var request = new RestRequest("api/clients/add", Method.POST);
+            var request = new RestRequest("Api/Clients/Add", Method.POST);
             request.JsonSerializer = new JsonSerializer();
             request.AddJsonBody(newClient);
             return client.Execute<ResponseServer>(request).Data;
         }
         public ResponseServer UpdateClient(Client updClient)
         {
-            var request = new RestRequest("api/clients/update", Method.PUT);
+            var request = new RestRequest("Api/Clients/Update", Method.PUT);
             request.JsonSerializer = new JsonSerializer();
             request.AddJsonBody(updClient);
             return client.Execute<ResponseServer>(request).Data;
         }
         public ResponseServer DeleteClient(int? id)
         {
-            var request = new RestRequest("api/clients/delete", Method.DELETE);
+            var request = new RestRequest("Api/Clients/Delete", Method.DELETE);
             return client.Execute<ResponseServer>(request).Data;
         }
     }

@@ -71,7 +71,7 @@ namespace GymClientServer.Sources
             using (IDbConnection dbConnection = ConnectionDb)
             {
                 dbConnection.Open();
-                dbConnection.Execute($"INSERT INTO {tableName} (FirstName, LastName, BirthDay, Phone, Email, EmpId, clubId, SheduleId) " +
+                dbConnection.Execute($"INSERT INTO {tableName} (FirstName, LastName, BirthDay, Phone, Email, EmpId, clubId, ScheduleId) " +
                     $"VALUES (@FirstName, @LastName, @BirthDay, @Phone, @Email, @EmpId, @ClubId, @ScheduleId)", employee);
             }
         }

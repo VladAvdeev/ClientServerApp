@@ -22,7 +22,7 @@ namespace GymClient.ClientsREST
         }
         public List<Employee> GetEmployees()
         {
-            var request = new RestRequest("api/employeers", Method.GET);
+            var request = new RestRequest("Api/Employeers", Method.GET);
             return client.Execute<List<Employee>>(request).Data; 
         }
         public ResponseServer AddEmployee(Employee employee)
