@@ -35,14 +35,14 @@ namespace GymClient.ClientsREST
         }
         public ResponseServer UpdateClient(Client updClient)
         {
-            var request = new RestRequest("Api/Clients/Update", Method.PUT);
+            var request = new RestRequest($"Api/Clients/Update/{updClient.Id}", Method.PUT);
             request.JsonSerializer = new JsonSerializer();
             request.AddJsonBody(updClient);
             return client.Execute<ResponseServer>(request).Data;
         }
         public ResponseServer DeleteClient(int? id)
         {
-            var request = new RestRequest("Api/Clients/Delete", Method.DELETE);
+            var request = new RestRequest($"Api/Clients/Delete/{id}", Method.DELETE);
             return client.Execute<ResponseServer>(request).Data;
         }
     }

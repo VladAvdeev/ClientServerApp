@@ -34,14 +34,14 @@ namespace GymClient.ClientsREST
         }
         public ResponseServer ChangeEmployee(Employee employee)
         {
-            var request = new RestRequest("Api/Employee/Update", Method.PUT);
+            var request = new RestRequest($"Api/Employee/Update/{employee.Id}", Method.PUT);
             request.JsonSerializer = new JsonSerializer();
             request.AddJsonBody(employee);
             return client.Execute<ResponseServer>(request).Data;
         }
         public ResponseServer DeleteEmployee(int? id)
         {
-            var request = new RestRequest("Api/Employee/Delete", Method.DELETE);
+            var request = new RestRequest($"Api/Employee/Delete/{id}", Method.DELETE);
             return client.Execute<ResponseServer>(request).Data;
         }
     }
