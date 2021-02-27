@@ -122,6 +122,7 @@
     <Compile Include="ClientsREST\ClientsServer.cs" />
     <Compile Include="ClientsREST\GymServer.cs" />
     <Compile Include="ClientsREST\PostServer.cs" />
+    <Compile Include="ClientsREST\ScheduleServer.cs" />
     <Compile Include="Entities\Handbook.cs" />
     <Compile Include="Services\DiConfigModule.cs" />
     <Compile Include="Services\NingectInstanse.cs" />

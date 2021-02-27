@@ -15,4 +15,10 @@ namespace CommonLibrary.Models
         public string TicketUseful { get; set; }
         //public DateTime GymTicketBestBefore { get; set; }
     }
+    public class Ticket
+    {
+        public int Id { get; set; }
+        public string TicketName { get; set; }
+        public string TicketPeriod { get; set; }
+    }
 }

@@ -8,11 +8,8 @@ namespace GymClientServer.ViewDB
     public class ScheduleGymView
     {
         public int Id { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Phone { get; set; }
         public string SportName { get; set; }
-        public string PostName { get; set; }
         public string FromTo { get; set; }
+        public string Phone { get; set; }
     }
 }

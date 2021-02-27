@@ -21,12 +21,14 @@ namespace GymClientServer.Controllers
         private readonly ClientRepository clientRepository;
         private readonly ClubesRepository clubesRepository;
         private readonly PostsRepository postsRepository;
+        private readonly TimingRepository timingRepository;
         public ModelsController(IConfiguration configuration)
         {
             employeeRepository = new EmployeeRepository(configuration);
             clientRepository = new ClientRepository(configuration);
             clubesRepository = new ClubesRepository(configuration);
             postsRepository = new PostsRepository(configuration);
+            timingRepository = new TimingRepository(configuration);
         }
         #region Employeers Methods
         // GET: api/employeers
@@ -216,6 +218,7 @@ namespace GymClientServer.Controllers
 
         }
         #endregion
+
         #region Post Methods
         [Route("posts")]
         [HttpGet]
@@ -272,5 +275,63 @@ namespace GymClientServer.Controllers
             return response;
         }
         #endregion
+
+        #region Timing Methods
+        [Route("times")]
+        [HttpGet]
+        public IEnumerable<TimeSport> GetTimes()
+        {
+            return timingRepository.FindAll();
+        }
+        [HttpGet("times/{id}")]
+        public TimeSport GetTimeById(int id)
+        {
+            return timingRepository.FindById(id);
+        }
+        [HttpPost("times/add")]
+        public void AddTime(TimeSport time)
+        {
+            timingRepository.Add(time);
+        }
+        [HttpPut("times/update/{id}")]
+        public ResponseServer UpdateTime(TimeSport time)
+        {
+            ResponseServer response = new ResponseServer()
+            {
+                Action = "Обновление расписания",
+                IsSuccess = false,
+                Message = "Не удалось обновить расписание"
+            };
+            TimeSport oldTime = timingRepository.FindById(time.Id);
+            if (oldTime.FromTo != time.FromTo || oldTime.TimeForClub != time.TimeForClub )
+            {
+                response.IsSuccess = true;
+                timingRepository.Update(time);
+                response.Message = "Расписание обновлено";
+            }
+            return response;
+        }
+        [HttpDelete("times/delete/{id}")]
+        public ResponseServer DeleteTime(int? id)
+        {
+            ResponseServer response = new ResponseServer()
+            {
+                Action = "Удаление расписания",
+                IsSuccess = false,
+                Message = "Не удалось удалить расписание"
+            };
+            if (id != null)
+            {
+                response.IsSuccess = true;
+                timingRepository.Remove(id.Value);
+                if (timingRepository.FindById(id.Value) == null)
+                {
+                    response.Message = "Успешно удалено";
+                }
+            }
+            return response;
+        }
+        #endregion
+
     }
 }
