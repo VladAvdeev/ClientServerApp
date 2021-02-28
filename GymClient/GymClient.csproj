@@ -145,6 +145,9 @@
     <Compile Include="Views\Admin\AdminGymsControl.xaml.cs">
       <DependentUpon>AdminGymsControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Admin\AdminScheduleControl.xaml.cs">
+      <DependentUpon>AdminScheduleControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Admin\AdminWindowView.xaml.cs">
       <DependentUpon>AdminWindowView.xaml</DependentUpon>
     </Compile>
@@ -188,6 +191,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Admin\AdminGymsControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\AdminScheduleControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

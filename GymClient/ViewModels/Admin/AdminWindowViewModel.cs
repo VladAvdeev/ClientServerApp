@@ -27,11 +27,18 @@ namespace GymClient.ViewModels.Admin
             get => adminGymViewModel;
             set => SetProperty(ref adminGymViewModel, value);
         }
+        private ScheduleViewModel schedule;
+        public ScheduleViewModel ScheduleViewModel
+        {
+            get => schedule;
+            set => SetProperty(ref schedule, value);
+        }
         public AdminWindowViewModel()
         {
             AdminEmployeeViewModel = new AdminEmployeeViewModel();
             AdminClientViewModel = new AdminClientViewModel();
             AdminGymViewModel = new AdminGymViewModel();
+            ScheduleViewModel = new ScheduleViewModel();
         }
     }
 }

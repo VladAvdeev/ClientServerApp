@@ -17,6 +17,9 @@
             <TabItem Header="Клубы">
                 <local:AdminGymsControl DataContext="{Binding AdminGymViewModel}"/>
             </TabItem>
+            <TabItem Header="Расписание">
+                <local:AdminScheduleControl DataContext="{Binding ScheduleViewModel}"/>
+            </TabItem>
         </TabControl>
     </Grid>
 </Window>
